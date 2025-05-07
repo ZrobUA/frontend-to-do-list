@@ -1,18 +1,17 @@
-@keyframes gradientAnimation {
-  0% {
-    background: linear-gradient(45deg, #000000, #434343);
-  }
-  50% {
-    background: linear-gradient(45deg, #434343, #000000);
-  }
-  100% {
-    background: linear-gradient(45deg, #000000, #434343);
-  }
+body {
+  background: linear-gradient(360deg,#1d1616,#c6c6c6,#787878);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
 }
 
-/* Встановлення градієнту і анімації на фон */
-body {
-  background: linear-gradient(45deg, #000000, #434343);
-  background-size: 400% 400%;
-  animation: gradientAnimation 10s ease infinite;
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
