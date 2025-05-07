@@ -1,11 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do Ліст</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+
 </head>
-<body>
-    <h1>Hello world</h1>
+<body class="bg-gray-900 text-white min-h-screen">
+  <!-- Header -->
+  <header class="bg-gray-800 p-4 flex justify-between items-center shadow-md">
+    <h1 class="text-xl font-bold">✍️Paloma To-Do</h1>
+    <button onclick="toggleModal()" class="bg-blue-600 hover:bg-blue-700 px-4 py-1 rounded-lg">Зареєструватися</button>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex items-center justify-center py-12">
+    <div class="bg-gray-800 p-8 rounded-2xl shadow-xl w-full max-w-md">
+      <h2 class="text-3xl font-bold mb-6 text-center">📝 Мій To-Do Ліст</h2>
+      <div class="flex gap-2 mb-4">
+        <input id="taskInput" type="text" placeholder="Нова задача..." class="flex-1 p-2 rounded-lg text-black" onkeydown="handleEnter(event)" />
+        <button onclick="addTask()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 rounded-lg">Додати</button>
+      </div>
+      <ul id="taskList" class="space-y-2"></ul>
+    </div>
+  </main>
+
+  <!-- Registration Modal -->
+  <div id="modal" class="fixed inset-0 bg-black/60 hidden items-center justify-center">
+    <div class="bg-gray-800 p-6 rounded-xl w-full max-w-sm relative">
+      <button onclick="toggleModal()" class="absolute top-2 right-3 text-red-400 text-xl">✖</button>
+      <h2 class="text-2xl font-bold mb-4">Реєстрація</h2>
+      <form onsubmit="register(event)" class="space-y-4">
+        <input type="text" placeholder="Ім'я" class="w-full p-2 rounded text-black" required />
+        <input type="email" placeholder="Email" class="w-full p-2 rounded text-black" required />
+        <input type="password" placeholder="Пароль" class="w-full p-2 rounded text-black" required />
+        <button type="submit" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg w-full">Готово</button>
+      </form>
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
 </body>
 </html>
